@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,8 +10,52 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.github.madroid.vectordrawable.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:orientation="vertical">
+
+        <!-- android 5.0 及以上-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_android_black_24dp"
+                />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:tint="@color/colorAccent"
+                android:src="@drawable/ic_android_black_24dp"
+                />
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:tint="@color/colorAccent"
+                android:background="@drawable/ic_android_black_24dp"
+                android:id="@+id/view" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello World!"
+                android:gravity="center"
+                android:tint="@color/colorAccent"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                />
+
+        </LinearLayout>
+
+        <!-- Android 4.4及以下-->
+
+
+    </LinearLayout>
+
+
+</ScrollView>
