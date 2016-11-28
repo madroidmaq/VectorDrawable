@@ -117,6 +117,18 @@ VectorDrawable也是Drawable的一个直接子类, 像其它Drawable那样通常
 	Drawable drawable = VectorDrawableCompat.create(resources, R.drawable.vector_drawable, theme);
 	view.setBackground(drawable);
 
+注：上面代码只是明确知道你所要加载的resource是VectoreDrable，若是在不知道自己加载是普通的位图资源还是矢量图，上面写的就会抛出NotFoundException异常。这也很好理解，当你要创建矢量图的时候发现取到的资源并不是矢量图而是普通的位图资源，所以就会抛出异常。我在`VectorDrawableCompat `中并没有找到判断`drawable id`是否为矢量的方法，不过这里有一个取巧的办法，那就是捕获异常，如下
+
+
+	    Drawable drawable ;
+	    try {
+	        drawable = ContextCompat.getDrawable(context, R.drawable.icon);
+	    } catch (Resources.NotFoundException e) {
+	        drawable = VectorDrawableCompat.create(context, item.icon, context.getTheme()) ;
+	    }
+
+若有更好的办法，请提出来。
+
 ----
 ## Show me code
 首先是布局文件，如下
